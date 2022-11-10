@@ -3,6 +3,7 @@ node_modules/
 dist/
 /build
 src/environment.ts
+.env
 
 # Compiled Java class files
 *.class
