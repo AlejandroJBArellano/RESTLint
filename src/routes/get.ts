@@ -5,6 +5,9 @@ import { Review } from '../schemas/review';
 import { messageFindOne, messageStatus } from '../utils/message';
 
 export const getRoutes = {
+    default:async (req: Request, res: Response) => {
+        res.send(`<h1>Hello World!</h1>`)
+    },
     getMovies: async (req: Request, res: Response) => {
         const movies = await Movie.find(req.query)
         res.status(200).json({
@@ -27,7 +30,7 @@ export const getRoutes = {
         const review = await Review.findOne(req.query);
         res.status(200).json({data: review, message: messageFindOne(review?._id)})
     },
-    getMovie: async (req: Request, res: Response) => {
+    getMovieByQuery: async (req: Request, res: Response) => {
         const movie = await Movie.findOne(req.query);
         res.status(200).json({data: movie, message: messageFindOne(movie?._id)})
     }
